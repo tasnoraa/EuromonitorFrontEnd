@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            
+      <div class="collapse navbar-collapse" id="navbarColor03">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['home']">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['products']">Products <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+        
+        <form class="form-inline my-2 my-lg-0" [formGroup] = "formdata" (ngSubmit) = "login(formdata.value)" novalidate>
+          <input class="form-control mr-sm-2" type="text" placeholder="Username" formControlName = "username">
+          <div *ngIf="formdata.controls.username?.errors?.required  && submitForm">
+            <span class="alert alert-danger">username is required</span>
+          </div>
+          <input class="form-control mr-sm-2" type="password" placeholder="Password" formControlName = "password">
+          <div *ngIf="formdata.controls.password?.errors?.required  && submitForm">
+            <span class="alert alert-danger">password is required</span>
+          </div>
+          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Sign In</button>
+          <button class="btn btn-secondary my-2 my-sm-0" type="button" [routerLink]="['register']">Sign Up</button>
+        </form>
+      </div>
+    </nav>
+<div class="jumbotron bg">
+  
+</div>
+
+<br>
+<br>
+
+<div class="container">
+  <!-- <app-register></app-register>
+  <app-product-info></app-product-info> -->
+  <router-outlet></router-outlet>
+</div>
+
+</div>

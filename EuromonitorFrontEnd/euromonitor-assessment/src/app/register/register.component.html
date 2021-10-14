@@ -1,0 +1,19 @@
+<h2>Please register</h2>
+<form class="form-group" [formGroup] = "formdata" (ngSubmit) = "register(formdata.value)">
+  <input class="form-control mr-sm-2 form" type="text" placeholder="username" formControlName = "username">
+    <span class="red" *ngIf="formdata.controls.username?.errors?.required  && submitted">username is required</span>
+
+  <input class="form-control mr-sm-2 form" type="text" placeholder="email address" formControlName = "email">
+  <div *ngIf="formdata.controls.email?.errors?.required  && submitted">
+    <span class="red">email is required</span>
+  </div>
+  <input class="form-control mr-sm-2 form" type="password" placeholder="password" formControlName = "password">
+  <div *ngIf="formdata.controls.username?.errors?.required  && submitted">
+    <span class="red">password is required</span>
+  </div>
+  <input class="form-control mr-sm-2 form" type="password" placeholder="confirm password" formControlName = "confirmPassword">
+  <div *ngIf="formdata.controls.confirmPassword?.errors?.required  && submitted">
+    <span class="red">confirm password is required</span>
+  </div>
+  <button class="btn btn-secondary my-2 my-sm-0" type="submit">Sign In</button>
+</form>
